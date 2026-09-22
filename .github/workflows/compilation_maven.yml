@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 #Ma définition de job qui va s'éxécuter sur la machine virtuelle ubuntu-latest, et qui va exécuter les étapes suivantes
 jobs:
