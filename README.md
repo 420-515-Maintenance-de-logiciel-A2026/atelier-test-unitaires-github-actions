@@ -18,7 +18,7 @@ atelier-tests-unitaires/
         ├── CalculatriceTest.java               ← tests à compléter (TODO)
         └── CalculatriceAvecHistoriqueTest.java  ← tests avec MOCK à compléter (TODO)
 ```
-
+[![Compilation du projet Maven](https://github.com/420-515-Maintenance-de-logiciel-A2026/atelier-test-unitaires-github-actions/actions/workflows/compilation_maven.yml/badge.svg)](https://github.com/420-515-Maintenance-de-logiciel-A2026/atelier-test-unitaires-github-actions/actions/workflows/compilation_maven.yml)
 ### Étape 1 — Compléter les tests
 
 Ouvrez `CalculatriceTest.java`. Certains tests sont déjà écrits (niveau 1, à titre d'exemple).
