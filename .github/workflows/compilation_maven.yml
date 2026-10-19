@@ -27,18 +27,11 @@ jobs:
             run: chmod +x mvnw
           - name: Compilation du projet Maven
             run: ./mvnw package -DskipTests
-          - name: Set up Node.js
-            uses: actions/setup-node@v4
+          - name: Créer un release GitHub
+            uses: softprops/action-gh-release@v3
             with:
-              node-version: 'lts/*'
-    
-          - name: Install dependencies
-            run: npm ci
-    
-          - name: Release
-            env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            run: npx semantic-release
+              files: target/*.jar
+
 # implémenter les 17 tests qui échouent actuellement
 # modifier la dernière étape pour aussi exécuter les tests après la compilation
 
