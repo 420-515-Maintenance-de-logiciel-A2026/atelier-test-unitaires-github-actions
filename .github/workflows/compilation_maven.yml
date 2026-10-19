@@ -4,9 +4,12 @@ name: Compilation du projet Maven
 #S'exécute seulement quand on pousse du code sur la branche main
 on:
   push:
+    tags:
+      - '*.*.*'
     branches:
       - main
   workflow_dispatch:
+  
 
 #Ma définition de job qui va s'éxécuter sur la machine virtuelle ubuntu-latest, et qui va exécuter les étapes suivantes
 jobs:
@@ -23,6 +26,22 @@ jobs:
           - name : Fournir access au runner
             run: chmod +x mvnw
           - name: Compilation du projet Maven
-            run: ./mvnw compile
+            run: ./mvnw package -DskipTests
+          - name: Créer un release GitHub
+            uses: softprops/action-gh-release@v3
+            with:
+              files: target/*.jar
+
+# implémenter les 17 tests qui échouent actuellement
+# modifier la dernière étape pour aussi exécuter les tests après la compilation
+
+#Ajouter Jacoco dans votre projet pour être en mesure de voir 
+#le rapport de couverture de test
+
+# Utiliser un artefact pour stocker le rapport de couverture de test 
+# et le rendre disponible pour téléchargement après l'exécution du workflow
+
+#Empaqueter le projet Maven en un fichier JAR exécutable 
+#et le stocker comme artefact pour téléchargement après l'exécution du workflow
           
   
